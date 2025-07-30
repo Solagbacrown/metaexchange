@@ -1,0 +1,6 @@
+﻿services:
+  metaexchange:
+    image: metaexchange
+    build:
+      context: .
+      dockerfile: MetaExchange/Dockerfile
