@@ -17,6 +17,8 @@ namespace MetaExchange.Console.Engine;
 public abstract class OrderEngineBase(IOrderBookReader orderBookReader) : IOrderEngine
 {
     private readonly IOrderBookReader _orderBookReader = orderBookReader;
+    // Construct the file path using constants for the directory structure
+    private readonly string _filePath = Path.Combine(AppContext.BaseDirectory, Constants.Resources, Constants.Data, Constants.OrderBook);
 
     /// <summary>
     /// Asynchronously reads the order book data from the file system.
@@ -26,11 +28,8 @@ public abstract class OrderEngineBase(IOrderBookReader orderBookReader) : IOrder
     /// <exception cref="FileNotFoundException">Thrown if the order book file is not found at the expected location.</exception>
     protected async Task<List<OrderBook>> ReadOrderBookFromFileAsync()
     {
-        // Construct the file path using constants for the directory structure
-        var filePath = Path.Combine(AppContext.BaseDirectory, Constants.Resources, Constants.Data, Constants.OrderBook);
-
         // Read the order books from the file asynchronously
-        var orderBooks = await _orderBookReader.ReadOrderBookFromFileAsync(filePath);
+        var orderBooks = await _orderBookReader.ReadOrderBookFromFileAsync(_filePath);
         return orderBooks;
     }
 

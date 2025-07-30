@@ -11,9 +11,10 @@ public class OrderBookReader : IOrderBookReader
     /// <summary>
     /// JSON serializer options that ignore case for property names.
     /// </summary>
-    private static readonly JsonSerializerOptions CaseInsensitiveOptions = new()
+    private static readonly JsonSerializerOptions JsonSerializerOption = new()
     {
-        PropertyNameCaseInsensitive = true
+        PropertyNameCaseInsensitive = true,
+        WriteIndented = true,
     };
 
     /// <summary>
@@ -33,7 +34,17 @@ public class OrderBookReader : IOrderBookReader
         var json = await File.ReadAllTextAsync(filePath);
 
         // Deserialize the JSON content into a list of OrderBook objects
-        return JsonSerializer.Deserialize<List<OrderBook>>(json, CaseInsensitiveOptions)
+        return JsonSerializer.Deserialize<List<OrderBook>>(json, JsonSerializerOption)
                ?? throw new InvalidOperationException("Failed to parse order books.");
+    }
+
+    /// <summary>
+    /// Writes the updated list of order books to the JSON file asynchronously.
+    /// </summary>
+    /// <param name="orderBooks">The updated list of order books to be written to the file.</param>
+    public async Task WriteOrderBooksToFileAsync(List<OrderBook> orderBooks, string filePath)
+    {
+        var json = JsonSerializer.Serialize(orderBooks, JsonSerializerOption);
+        await File.WriteAllTextAsync(filePath, json);
     }
 }

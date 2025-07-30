@@ -4,10 +4,10 @@ namespace MetaExchange.Console.FileReader;
 
 public class OrderBook
 {
-    public Guid Id { get; init; }
-    public decimal EurBalance { get; init; }
-    public decimal BtcBalance { get; init; }
-    public DateTimeOffset AcqTime { get; init; }
+    public Guid Id { get; set; }
+    public decimal EurBalance { get; set; }
+    public decimal BtcBalance { get; set; }
+    public DateTimeOffset AcqTime { get; set; }
     public required List<Bid> Bids { get; set; }
     public required List<Ask> Asks { get; set; }
 }
