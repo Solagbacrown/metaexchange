@@ -1,0 +1,82 @@
+[
+  {
+    "id": "bf3c9c4a-93f5-4e6d-8f9f-0b1744f0e021",
+    "eurBalance": 60000,
+    "btcBalance": 10,
+    "acqTime": "2025-07-29T12:00:00Z",
+    "asks": [
+      {
+        "order": {
+          "id": "fa845b61-57a3-46bc-a6c7-412fa67d96f1",
+          "time": "2025-07-29T12:00:00",
+          "type": "Sell",
+          "kind": "Limit",
+          "amount": 1.5,
+          "price": 29500
+        }
+      },
+      {
+        "order": {
+          "id": "b8f8cb37-0101-4b32-acc5-6e2e2e87828d",
+          "time": "2025-07-29T12:00:01",
+          "type": "Sell",
+          "kind": "Limit",
+          "amount": 2.5,
+          "price": 32000
+        }
+      }
+    ],
+    "bids": [
+      {
+        "order": {
+          "id": "501a0d40-c498-4b88-a02e-476c770dab58",
+          "time": "2025-07-29T12:00:10",
+          "type": "Buy",
+          "kind": "Limit",
+          "amount": 1.5,
+          "price": 32000
+        }
+      }
+    ]
+  },
+  {
+    "id": "a2a407f2-2b44-4f8a-9a08-dc0d88e2be69",
+    "eurBalance": 100000,
+    "btcBalance": 10,
+    "acqTime": "2025-07-29T12:01:00Z",
+    "asks": [
+      {
+        "order": {
+          "id": "d14b26f3-293f-4c49-8c6f-e5d22680ea6b",
+          "time": "2025-07-29T12:01:00",
+          "type": "Sell",
+          "kind": "Limit",
+          "amount": 2.0,
+          "price": 30000
+        }
+      },
+      {
+        "order": {
+          "id": "c2629834-f6e0-42a7-81c7-bb22d5ad35ae",
+          "time": "2025-07-29T12:01:01",
+          "type": "Sell",
+          "kind": "Limit",
+          "amount": 4.0,
+          "price": 31000
+        }
+      }
+    ],
+    "bids": [
+      {
+        "order": {
+          "id": "96c896fd-1869-4f9f-a0a5-d1cf991fda2f",
+          "time": "2025-07-29T12:01:10",
+          "type": "Buy",
+          "kind": "Limit",
+          "amount": 2.5,
+          "price": 31000
+        }
+      }
+    ]
+  }
+]
