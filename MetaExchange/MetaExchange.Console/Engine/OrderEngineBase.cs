@@ -10,7 +10,7 @@ public abstract class OrderEngineBase(IOrderBookReader orderBookReader) : IOrder
 {
     protected async Task<List<OrderBook>> ReadOrderBookFromFileAsync()
     {
-        var filePath = Path.Combine(AppContext.BaseDirectory, Constants.OrderBookFilePath);
+        var filePath = Path.Combine(AppContext.BaseDirectory, Constants.Resources, Constants.Data,  Constants.OrderBook);
 
         var orderBooks = await orderBookReader.ReadOrderBookFromFileAsync(filePath);
         return orderBooks;  

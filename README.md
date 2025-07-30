@@ -19,13 +19,15 @@ A smart .NET app that simulates a **meta-exchange** for Bitcoin (BTC) trading. I
 MetaExchange.Console/
 │
 ├── Program.cs                  # Entry point
+├── WebApi                      # Web Controller
+├── Output                      # Customizable ConsoleWriter
 ├── Engine/                     # Buy/Sell engines
 ├── Models/                     # OrderBook, Bid, Ask, etc.
 ├── Requests/Responses/         # DTOs for API and console
 ├── FileReader/                 # Reads orderbooks.json
-├── CommandHandlers/           # Console/Web/Help handlers
-├── Resources/Path/            # ✅ orderbooks.json lives here
-└── Tests/                     # Unit tests with NSubstitute
+├── CommandHandlers/            # Console/Web/Help handlers
+├── Resources/                  # ✅ orderbooks.json lives here
+└── UnitTests/                     # Unit tests with NSubstitute
 
 
 
@@ -53,3 +55,9 @@ http://localhost:5000/swagger
 
 ## Console Mode 
 dotnet run -- -console Buy 5
+
+## Via Docker
+cd metaExchange\MetaExhange
+docker build -t metaexchange.console .
+docker run -it metaexchange.console -console buy 5
+docker run -p 8080:8080 metaexchange.console -web

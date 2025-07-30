@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "MetaExchange.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "-web"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://0.0.0.0:8080"
+      },
+      "applicationUrl": "http://0.0.0.0:8080"
+    }
+  }
+}
