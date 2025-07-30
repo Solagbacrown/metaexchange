@@ -1,24 +1,18 @@
-﻿using MetaExchange.Console.Models;
-using MetaExchange.Console.FileReader;
+﻿using MetaExchange.Console.FileReader;
 using MetaExchange.Console.Resources.Path;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
-using System.Collections.Generic;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace MetaExchange.Console.WebApi
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderBookController : ControllerBase
+    public class OrderBooksController : ControllerBase
     {
         private readonly string _filePath = Path.Combine(AppContext.BaseDirectory, Constants.Resources, Constants.Data, Constants.OrderBook);
         private readonly IOrderBookReader _orderBookReader;
 
-        public OrderBookController(IOrderBookReader orderBookReader)
+        public OrderBooksController(IOrderBookReader orderBookReader)
         {
             _orderBookReader = orderBookReader;
         }
