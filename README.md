@@ -27,7 +27,8 @@ MetaExchange.Console/
 ├── FileReader/                 # Reads orderbooks.json
 ├── CommandHandlers/            # Console/Web/Help handlers
 ├── Resources/                  # ✅ orderbooks.json lives here
-└── UnitTests/                     # Unit tests with NSubstitute
+
+MetaExchange.UnitTests              # Unit tests with NSubstitute
 
 
 
@@ -61,3 +62,4 @@ cd metaExchange\MetaExhange
 docker build -t metaexchange.console .
 docker run -it metaexchange.console -console buy 5
 docker run -p 8080:8080 metaexchange.console -web
+http://localhost:8080/swagger/index.html

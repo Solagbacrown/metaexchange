@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MetaExchange.Console.WebApi
 {
@@ -27,7 +28,11 @@ namespace MetaExchange.Console.WebApi
         /// </summary>
         /// <param name="upsertOrderBooks">The list of order books to be updated or added.</param>
         /// <returns>Returns a status message indicating success or failure.</returns>
+        /// 
         [HttpPost("upsert")]
+        [SwaggerOperation(Summary = "Upsert a list of order books", Description = "Updates existing order books or inserts new ones into the data store.")]
+        [SwaggerResponse(200, "Order books have been upserted successfully.", typeof(List<OrderBook>))]
+
         public async Task<IActionResult> UpsertOrderBooks([FromBody] List<OrderBook> upsertOrderBooks)
         {
             // Read the existing order books from the JSON file
@@ -65,6 +70,9 @@ namespace MetaExchange.Console.WebApi
         /// </summary>
         /// <returns>A status message indicating success.</returns>
         [HttpDelete("clear")]
+        [SwaggerOperation(Summary = "Clears a list of order books", Description = "Clears existing order books in the data store.")]
+        [SwaggerResponse(200, "Order books have been upserted successfully.", typeof(List<OrderBook>))]
+
         public async Task<IActionResult> ClearOrderBooks()
         {
             var emptyOrderBooks = new List<OrderBook>(); // Empty list of order books
